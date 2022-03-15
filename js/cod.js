@@ -3,9 +3,7 @@ const select = document.querySelector(".selector");
 const intp = document.querySelector(".txt");
 
 intp.addEventListener("keypress", (e) => {
-  let dato = e.key;
-
-  select.innerHTML = `La ultima tecla precionada fue <b>${dato}</b>`;
+  console.log(e);
 });
 
 // div.addEventListener("contextmenu", (e) => {
