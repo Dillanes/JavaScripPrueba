@@ -2,12 +2,10 @@
 const select = document.querySelector(".selector");
 const intp = document.querySelector(".txt");
 
-addEventListener("select", (e) => {
-  let start = e.target.selectionStart;
-  let end = e.target.selectionEnd;
-  let TextoSelect = intp.value;
+intp.addEventListener("keypress", (e) => {
+  let dato = e.key;
 
-  select.innerHTML = TextoSelect.substring(start, end);
+  select.innerHTML = `La ultima tecla precionada fue <b>${dato}</b>`;
 });
 
 // div.addEventListener("contextmenu", (e) => {
