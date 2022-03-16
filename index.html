@@ -9,8 +9,32 @@
   </head>
   <body>
     <div class="contenedor">
-      <input type="text" class="txt" />
-      <div class="selector"></div>
+      <form autocomplete="off" class="form-1">
+        <h2 id="cab">Titulo</h2>
+        <input
+          type="text"
+          class="int"
+          placeholder="Escribe tu nombre"
+          id="nombre"
+          required
+        />
+        <input
+          type="text"
+          class="int"
+          placeholder="Materia reprobada"
+          id="materia"
+          required
+        />
+        <input
+          type="email"
+          required
+          class="int"
+          placeholder="@ejemplo"
+          id="gmail"
+        />
+        <input type="submit" value="Solicitar" id="btn-enviar" />
+        <div class="mensaje"></div>
+      </form>
     </div>
     <script src="js/cod.js"></script>
   </body>
