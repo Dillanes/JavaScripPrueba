@@ -1,44 +1,56 @@
-let nombre = document.querySelector("#nombre");
-let materia = document.querySelector("#materia");
-let correo = document.querySelector("#gmail");
-let btn = document.querySelector("#btn-enviar");
-let mensaje = document.querySelector(".mensaje");
-btn.addEventListener("click", (e) => {
-  e.preventDefault();
-  let error = validar();
+let datosA = document.querySelector(".contenedor");
+let boton = document.querySelector(".confirmar");
+alumnos = [
+  {
+    nombre: "Israel Dillanes",
+    email: "israel@gmail.com",
+    materia: "fisica",
+  },
+  {
+    nombre: "Leonel Dillanes",
+    email: "Leonel@gmail.com",
+    materia: "algebra",
+  },
+  {
+    nombre: "Juan Dillanes",
+    email: "juan@gmail.com",
+    materia: "español",
+  },
+  {
+    nombre: "betsa Dillanes",
+    email: "betsa@gmail.com",
+    materia: "calculo",
+  },
+];
 
-  if (error[0]) {
-    mensaje.classList.remove("colorV");
-    mensaje.innerHTML = error[1];
-    mensaje.classList.add("colorR");
-  } else {
-    mensaje.innerHTML = "Formulario enviado";
-    mensaje.classList.add("colorV");
-    mensaje.classList.remove("colorR");
+for (alumno in alumnos) {
+  let datos = alumnos[alumno];
+  let nombre = datos["nombre"];
+  let email = datos["email"];
+  let materia = datos["materia"];
+
+  let htmlCodigo = `<div class="item" id="nombre">${nombre}</div>
+      <div class="item" id="email">${email}</div>
+      <div class="item" id="matria">${materia}</div>
+      <div class="item semana">
+      <select class="semana-elegida">
+        <option value="semana 1">Semana1</option>
+        <option value="semana 2">Semana2</option>
+      </select></div>`;
+
+  datosA.innerHTML += htmlCodigo;
+}
+
+boton.addEventListener("click", () => {
+  let confirmarM = confirm("Quieres confirmar las mesas");
+
+  if (confirmarM) {
+    document.body.removeChild(boton);
+    let elementos = document.querySelectorAll(".semana");
+    let semanaelegida = document.querySelectorAll(".semana-elegida");
+    for (elemento in elementos) {
+      semana = elementos[elemento];
+      semana.innerHTML = semanaelegida[elemento].value;
+    }
   }
 });
-
-const validar = () => {
-  let error = [];
-  if (nombre.value.length < 4 || nombre.value.length > 30) {
-    error[0] = true;
-    error[1] = "Nombre no valido";
-    return error;
-  } else if (materia.value.length < 5 || materia.value.length > 30) {
-    error[0] = true;
-    error[1] = "Materia invalida";
-    return error;
-  } else if (
-    correo.value.length < 5 ||
-    correo.value.length > 30 ||
-    correo.value.indexOf("@") == -1 ||
-    correo.value.indexOf(".") == -1
-  ) {
-    error[0] = true;
-    error[1] = "Correo invalido";
-    return error;
-  }
-
-  error[0] = false;
-  return error;
-};

@@ -1,68 +1,40 @@
 * {
   margin: 0;
   padding: 0;
-}
-
-body {
-  background: black;
-  display: block;
   box-sizing: border-box;
 }
 
-#cab {
-  align-self: center;
-  color: white;
-  font-family: cursive;
-  height: 20px;
-  margin-bottom: 20px;
-}
 .contenedor {
-  display: flex;
-}
-
-.form-1 {
-  height: 300px;
-  width: 300px;
-  margin: 100px auto;
-  display: flex;
-  flex-direction: column;
-  background-color: #ccc5;
-  padding: 10px;
-  justify-content: center;
-  border-radius: 15px;
-}
-
-.int {
-  height: 30px;
-  margin-top: 10px;
-  border-radius: 5px;
-  border: none;
-}
-
-#btn-enviar {
-  align-self: center;
-  height: 25px;
+  display: grid;
+  grid-template-rows: 50px;
+  grid-template-columns: repeat(4, minmax(min-content, max-content));
+  grid-auto-rows: 50px;
+  gap: 5px;
   width: 80%;
-  margin-top: 10px;
+  margin: 20px auto;
+}
+
+.item {
+  padding: 10px;
+  border: 1px solid rgb(42, 136, 212);
+}
+
+.confirmar {
+  width: 150px;
+  margin-left: 10%;
+  height: 30px;
+  background-color: aqua;
+  border: 1px solid blue;
   border-radius: 10px;
-  background-color: rgb(245, 71, 71);
+  color: rgb(8, 68, 121);
+  font-weight: 700;
+  box-shadow: 1px 2px 2px black;
+  transition: color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.confirmar:hover {
   color: white;
-  font-size: 17px;
-  font-family: monospace;
-  transition: all 0.3s;
-}
-
-#btn-enviar:hover {
-  background-color: #f22;
+  background-color: rgb(151, 33, 33);
   cursor: pointer;
-}
-
-.colorR {
-  color: red;
-  font-size: 20px;
-}
-
-.colorV {
-  color: green;
-  font-size: 20px;
 }
